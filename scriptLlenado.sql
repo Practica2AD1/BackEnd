@@ -68,8 +68,16 @@
 
 /**LLENAR TABLA PREGUNTA **/
 	INSERT INTO Pregunta(
-		pregunta, PREGUNTA_id_categoria, PREGUNTA_id_empresa
+		pregunta, PREGUNTA_id_categoria
 	)
 	VALUES (
-		'¿Que marcas de refrigetante recomiendan?',1,1 
+		'¿Que marcas de refrigetante recomiendan?',1
+	);
+
+/** LLENAR TABLA RESPUESTA **/
+	INSERT INTO Respuesta(
+		respuesta,RESPUESTA_idPregunta, RESPUESTA_id_empresa
+	)
+	VALUES (
+		'Nosotros recomendamos Prestone que es la marca que nosotros distribuimos principalmente',1,1
 	);
