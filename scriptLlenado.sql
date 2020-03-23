@@ -65,3 +65,11 @@
 	)
 	VALUES ('Refrigerante','saber x3'
 			,40,'aun no se',1,1);
+
+/**LLENAR TABLA PREGUNTA **/
+	INSERT INTO Pregunta(
+		pregunta, PREGUNTA_id_categoria, PREGUNTA_id_empresa
+	)
+	VALUES (
+		'¿Que marcas de refrigetante recomiendan?',1,1 
+	);
