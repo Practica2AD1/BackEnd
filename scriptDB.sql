@@ -1,6 +1,18 @@
+/** DATOS DE LA BASE DE DATOS
+	ip: 104.197.108.119
+	password: usac2020GT
+	user: root
+	name: Practica2
+
+**/
+
+/** CREACION DE LA BASE DE DATOS **/
 CREATE DATABASE Practica2;
+
+/** USAR LA BASE DE DATOS **/
 USE Practica2;
 
+/** TABLAS DE LA BASE DE DATOS**/
 CREATE TABLE Empresa(
 	id_empresa 		INT AUTO_INCREMENT PRIMARY KEY,
 	telefono		VARCHAR(20)	NOT NULL UNIQUE,
