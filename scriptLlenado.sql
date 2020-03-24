@@ -85,3 +85,17 @@
 /** LLENAR TABLA FOTO **/
 	INSERT INTO Foto(nombreFoto, pathImagen, FOTO_id_empresa)
 	VALUES ('prueba2','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585003915/refrigerante_prestone_ama1gt.jpg',1);
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen1','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen1_ahaz1p.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen2','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen2_wcpprm.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen3','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033702/imagen3_ckjxxd.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen4','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen4_ss0utj.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen5','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen5_wsqtqj.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen6','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen6_qsxwui.jpg');
+	INSERT INTO Foto(nombreFoto,pathImagen)
+	VALUES('imagen7','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585033701/imagen7_tyoece.jpg');
