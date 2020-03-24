@@ -14,27 +14,56 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
 class GamesController {
-    //DEVOLVER TODOS LOS SERVICIOS
-    list(req, res) {
+    //DEVOLVER EL TELEFONO DE LA EMPRESA
+    getTelefono(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const servicios = yield database_1.default.query('SELECT * FROM Servicio');
+            const servicios = yield database_1.default.query('SELECT telefono FROM Empresa WHERE id_empresa = 1');
             if (servicios.length > 0) {
-                return res.json(servicios);
+                return res.json(servicios[0]);
             }
             res.status(404).json({ text: 'El servicio no existe' });
         });
     }
-    //DEVOLVER UN UNICO JUEGO
-    getOne(req, res) {
+    //DEVOLVER LA DIRECCION DE LA EMPRESA
+    getDireccion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            const { id } = req.params;
-            const servicio = yield database_1.default.query('SELECT * FROM Servicio WHERE id_servicio = ?', [id]);
-            //console.log(servicio);
-            if (servicio.length > 0) {
-                return res.json(servicio[0]);
+            const servicios = yield database_1.default.query('SELECT direccion FROM Empresa WHERE id_empresa = 1');
+            if (servicios.length > 0) {
+                return res.json(servicios[0]);
             }
             res.status(404).json({ text: 'El servicio no existe' });
+        });
+    }
+    //DEVOLVER EL CORREO DE LA EMPRESA
+    getCorreo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const servicios = yield database_1.default.query('SELECT correo FROM Empresa WHERE id_empresa = 1');
+            if (servicios.length > 0) {
+                return res.json(servicios[0]);
+            }
+            res.status(404).json({ text: 'El servicio no existe' });
+        });
+    }
+    //DEVOLVER EL NOMRE DE LA EMPRESA
+    getNombre(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const servicios = yield database_1.default.query('SELECT nombreEmpresa FROM Empresa WHERE id_empresa = 1');
+            if (servicios.length > 0) {
+                return res.json(servicios[0]);
+            }
+            res.status(404).json({ text: 'El servicio no existe' });
+        });
+    }
+    //DEVOLVER UNA FOTO
+    getPath(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { string } = req.params;
+            console.log(req.params);
+            const servicios = yield database_1.default.query('SELECT pathImagen FROM Foto where lower(nombreFoto) = lower(?)', [string]);
+            if (servicios.length > 0) {
+                return res.json(servicios[0]);
+            }
+            res.status(404).json({ text: 'La foto no existe' });
         });
     }
 }

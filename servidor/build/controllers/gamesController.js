@@ -35,7 +35,6 @@ class GamesController {
     //DEVOLVER UN UNICO JUEGO
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
             const { id } = req.params;
             const servicio = yield database_1.default.query('SELECT * FROM Servicio WHERE id_servicio = ?', [id]);
             //console.log(servicio);

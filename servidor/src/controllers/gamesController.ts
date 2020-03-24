@@ -20,7 +20,6 @@ class GamesController{
     }
     //DEVOLVER UN UNICO JUEGO
     public async getOne (req: Request,res: Response): Promise<any>{
-        console.log(req.body);  
         const {id}= req.params;
         const servicio = await pool.query ('SELECT * FROM Servicio WHERE id_servicio = ?',[id]);
         //console.log(servicio);

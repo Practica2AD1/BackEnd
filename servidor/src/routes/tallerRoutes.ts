@@ -9,7 +9,12 @@ class TallerRoutes{
     }
 
     config(): void{
-        this.router.get('/', tallerController.list);
+        this.router.get('/telefono', tallerController.getTelefono);
+        this.router.get('/direccion', tallerController.getDireccion);
+        this.router.get('/correo', tallerController.getCorreo);
+        this.router.get('/nombre', tallerController.getNombre);
+        this.router.get('/foto/:string', tallerController.getPath);
+        
     }
 
 

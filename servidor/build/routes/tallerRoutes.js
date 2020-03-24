@@ -11,7 +11,11 @@ class TallerRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', tallerController_1.default.list);
+        this.router.get('/telefono', tallerController_1.default.getTelefono);
+        this.router.get('/direccion', tallerController_1.default.getDireccion);
+        this.router.get('/correo', tallerController_1.default.getCorreo);
+        this.router.get('/nombre', tallerController_1.default.getNombre);
+        this.router.get('/foto/:string', tallerController_1.default.getPath);
     }
 }
 const tallerRoutes = new TallerRoutes();
