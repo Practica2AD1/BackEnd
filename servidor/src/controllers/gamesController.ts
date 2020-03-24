@@ -6,7 +6,7 @@ class GamesController{
     
     //DEVOLVER TODOS LOS SERVICIOS
     public async list (req: Request,res: Response): Promise<any>{
-        const servicios = await pool.query('SELECT * FROM Servicio');
+        const servicios = await pool.query('SELECT * FROM Servicio WHERE estado = 1');
         if(servicios.length > 0){
             return res.json(servicios);
         }
@@ -21,7 +21,7 @@ class GamesController{
     //DEVOLVER UN UNICO JUEGO
     public async getOne (req: Request,res: Response): Promise<any>{
         const {id}= req.params;
-        const servicio = await pool.query ('SELECT * FROM Servicio WHERE id_servicio = ?',[id]);
+        const servicio = await pool.query ('SELECT * FROM Servicio WHERE id_servicio = ? and estado = 1',[id]);
         //console.log(servicio);
         if(servicio.length > 0){
             return res.json(servicio[0]);
@@ -30,12 +30,21 @@ class GamesController{
             
     }
 
-    public delete(req: Request,res: Response){
-        res.json('eliminado un servicio')
+    public async delete(req: Request,res: Response): Promise<any>{
+        const {id} = req.params;
+        try {
+            const val  = await pool.query('UPDATE Servicio set estado = 0 WHERE id_servicio = ? and estado = 1',[id]);            
+            res.json('El servicio se ha eliminado');
+        } catch (error) {
+            res.json(error);
+        }
+        
     }
 
-    public update(req: Request,res: Response){
-        res.json('actualizando un servicio')
+    public async update(req: Request,res: Response): Promise<any>{
+        const {id} = req.params;
+        const val  = await pool.query('UPDATE Servicio set ? WHERE id_servicio = ? and estado = 1',[req.body,id]);
+        res.json('El servicio se actualizado');
     }
 }
 
