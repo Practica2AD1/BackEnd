@@ -81,3 +81,7 @@
 	VALUES (
 		'Nosotros recomendamos Prestone que es la marca que nosotros distribuimos principalmente',1,1
 	);
+
+/** LLENAR TABLA FOTO **/
+	INSERT INTO Foto(nombreFoto, pathImagen, FOTO_id_empresa)
+	VALUES ('prueba2','https://res.cloudinary.com/ddxu7jpgn/image/upload/v1585003915/refrigerante_prestone_ama1gt.jpg',1);

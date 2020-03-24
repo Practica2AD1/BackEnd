@@ -6,7 +6,7 @@ class GamesController{
     
     //DEVOLVER EL TELEFONO DE LA EMPRESA
     public async getTelefono (req: Request,res: Response): Promise<any>{
-        const servicios = await pool.query('SELECT telefono FROM Empresa WHERE id_empresa = 1');
+        const servicios = await pool.query('SELECT telefono FROM Empresa WHERE id_empresa = 1 and estado = 1');
         if(servicios.length > 0){
             return res.json(servicios[0]);
         }
@@ -14,7 +14,7 @@ class GamesController{
     }
     //DEVOLVER LA DIRECCION DE LA EMPRESA
     public async getDireccion (req: Request,res: Response): Promise<any>{
-        const servicios = await pool.query('SELECT direccion FROM Empresa WHERE id_empresa = 1');
+        const servicios = await pool.query('SELECT direccion FROM Empresa WHERE id_empresa = 1 and estado = 1');
         if(servicios.length > 0){
             return res.json(servicios[0]);
         }
@@ -22,7 +22,7 @@ class GamesController{
     }
     //DEVOLVER EL CORREO DE LA EMPRESA
     public async getCorreo (req: Request,res: Response): Promise<any>{
-        const servicios = await pool.query('SELECT correo FROM Empresa WHERE id_empresa = 1');
+        const servicios = await pool.query('SELECT correo FROM Empresa WHERE id_empresa = 1 and estado = 1');
         if(servicios.length > 0){
             return res.json(servicios[0]);
         }
@@ -30,7 +30,7 @@ class GamesController{
     }
     //DEVOLVER EL NOMRE DE LA EMPRESA
     public async getNombre (req: Request,res: Response): Promise<any>{
-        const servicios = await pool.query('SELECT nombreEmpresa FROM Empresa WHERE id_empresa = 1');
+        const servicios = await pool.query('SELECT nombreEmpresa FROM Empresa WHERE id_empresa = 1 and estado = 1');
         if(servicios.length > 0){
             return res.json(servicios[0]);
         }
@@ -40,7 +40,7 @@ class GamesController{
     public async getPath (req: Request,res: Response): Promise<any>{
         const {string}= req.params;
         console.log(req.params);
-        const servicios = await pool.query('SELECT pathImagen FROM Foto where lower(nombreFoto) = lower(?)',[string]);
+        const servicios = await pool.query('SELECT pathImagen FROM Foto where lower(nombreFoto) = lower(?) and estado = 1',[string]);
         if(servicios.length > 0){
             return res.json(servicios[0]);
         }

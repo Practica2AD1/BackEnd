@@ -41,3 +41,9 @@ class GamesController{
 
 const gamesController = new GamesController();
 export default gamesController;
+
+
+/*,
+    "build": "tsc -w",
+    "dev": "nodemon build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"*/
