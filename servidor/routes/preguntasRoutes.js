@@ -15,6 +15,7 @@ class PreguntaRoutes {
         this.router.get('/:id', preguntasController_1.default.getOne);
         this.router.post('/', preguntasController_1.default.create);
         this.router.get('/categoria/list', preguntasController_1.default.listCategory);
+        this.router.put('/:id', preguntasController_1.default.update);
     }
 }
 const preguntaRoutes = new PreguntaRoutes();

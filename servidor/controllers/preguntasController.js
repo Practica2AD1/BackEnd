@@ -53,6 +53,14 @@ class PreguntaController {
             res.status(404).json({ text: 'La Categoria no existe' });
         });
     }
+    update(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log("entro al update", req.params);
+            const { id } = req.params;
+            const val = yield database_1.default.query('UPDATE Pregunta set ? WHERE id_pregunta = ?', [req.body, id]);
+            res.json('El servicio se actualizado');
+        });
+    }
 }
 const preguntaController = new PreguntaController();
 exports.default = preguntaController;

@@ -69,3 +69,6 @@ CREATE TABLE Foto(
 	estado			INT 		NOT NULL DEFAULT 1,
 	FOREIGN KEY(FOTO_id_empresa) REFERENCES Empresa(id_empresa) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+	ALTER TABLE Pregunta
+ 	ADD estadoRespuesta int not null DEFAULT 0;

@@ -29,7 +29,6 @@ class PreguntaController{
             
     }
 
-
     public async listCategory (req: Request,res: Response): Promise<any>{
         const pregunta = await pool.query('SELECT * FROM CategoriaPregunta WHERE estado = 1');
         if(pregunta.length > 0){
@@ -37,6 +36,12 @@ class PreguntaController{
         }
         console.log('llego aca');
         res.status(404).json({text: 'La Categoria no existe'});
+    }
+    public async update(req: Request,res: Response): Promise<any>{
+        console.log("entro al update", req.params);
+        const {id} = req.params;
+        const val  = await pool.query('UPDATE Pregunta set ? WHERE id_pregunta = ?',[req.body,id]);
+        res.json('El servicio se actualizado');
     }
 
 }
