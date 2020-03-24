@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import indexRoutes from './routes/indexRoutes';
 import gamesRoutes from './routes/gamesRoutes';
+import tallerRoutes from './routes/tallerRoutes';
 
 class Server{
     public app:  Application;
@@ -23,7 +24,8 @@ class Server{
     }
     routes(): void{
         this.app.use(indexRoutes);
-        this.app.use('/api/taller',gamesRoutes);
+        this.app.use('/api/servicio',gamesRoutes);
+        this.app.use('/api/taller', tallerRoutes);
     }
     start(): void{
         this.app.listen(this.app.get('port'), () =>{

@@ -24,14 +24,6 @@ class GamesController {
             res.status(404).json({ text: 'El servicio no existe' });
         });
     }
-    //CREAR UN NUEVO SERVICIO
-    create(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log(req.body);
-            yield database_1.default.query('INSERT INTO Servicio set ?', [req.body]);
-            res.json('Servicio creado');
-        });
-    }
     //DEVOLVER UN UNICO JUEGO
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -44,12 +36,6 @@ class GamesController {
             }
             res.status(404).json({ text: 'El servicio no existe' });
         });
-    }
-    delete(req, res) {
-        res.json('eliminado un servicio');
-    }
-    update(req, res) {
-        res.json('actualizando un servicio');
     }
 }
 const gamesController = new GamesController();

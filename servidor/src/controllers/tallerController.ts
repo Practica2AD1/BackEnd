@@ -12,12 +12,6 @@ class GamesController{
         }
         res.status(404).json({text: 'El servicio no existe'});
     }
-    //CREAR UN NUEVO SERVICIO
-    public async create(req: Request,res: Response): Promise<void>{
-        console.log(req.body);  
-        await pool.query('INSERT INTO Servicio set ?',[req.body]);
-        res.json('Servicio creado')
-    }
     //DEVOLVER UN UNICO JUEGO
     public async getOne (req: Request,res: Response): Promise<any>{
         console.log(req.body);  
@@ -31,13 +25,6 @@ class GamesController{
             
     }
 
-    public delete(req: Request,res: Response){
-        res.json('eliminado un servicio')
-    }
-
-    public update(req: Request,res: Response){
-        res.json('actualizando un servicio')
-    }
 }
 
 const gamesController = new GamesController();
