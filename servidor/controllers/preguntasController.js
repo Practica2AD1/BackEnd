@@ -43,6 +43,16 @@ class PreguntaController {
             res.status(404).json({ text: 'La pregunta no existe' });
         });
     }
+    listCategory(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const pregunta = yield database_1.default.query('SELECT * FROM CategoriaPregunta WHERE estado = 1');
+            if (pregunta.length > 0) {
+                return res.json(pregunta);
+            }
+            console.log('llego aca');
+            res.status(404).json({ text: 'La Categoria no existe' });
+        });
+    }
 }
 const preguntaController = new PreguntaController();
 exports.default = preguntaController;
