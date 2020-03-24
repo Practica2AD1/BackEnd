@@ -17,7 +17,7 @@ class GamesController {
     //DEVOLVER TODOS LOS SERVICIOS
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const servicios = yield database_1.default.query('SELECT * FROM Servicio');
+            const servicios = yield database_1.default.query('SELECT * FROM Servicio WHERE estado = 1');
             if (servicios.length > 0) {
                 return res.json(servicios);
             }
@@ -36,7 +36,7 @@ class GamesController {
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const servicio = yield database_1.default.query('SELECT * FROM Servicio WHERE id_servicio = ?', [id]);
+            const servicio = yield database_1.default.query('SELECT * FROM Servicio WHERE id_servicio = ? and estado = 1', [id]);
             //console.log(servicio);
             if (servicio.length > 0) {
                 return res.json(servicio[0]);
@@ -45,10 +45,23 @@ class GamesController {
         });
     }
     delete(req, res) {
-        res.json('eliminado un servicio');
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            try {
+                const val = yield database_1.default.query('UPDATE Servicio set estado = 0 WHERE id_servicio = ? and estado = 1', [id]);
+                res.json('El servicio se ha eliminado');
+            }
+            catch (error) {
+                res.json(error);
+            }
+        });
     }
     update(req, res) {
-        res.json('actualizando un servicio');
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = req.params;
+            const val = yield database_1.default.query('UPDATE Servicio set ? WHERE id_servicio = ? and estado = 1', [req.body, id]);
+            res.json('El servicio se actualizado');
+        });
     }
 }
 const gamesController = new GamesController();
